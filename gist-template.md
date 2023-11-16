@@ -2,11 +2,13 @@
 
 Regular expressions (regex) can be a powerful tool for finding or validating email addresses in text. Here's a general regular expression that can be used to match a valid email address:
 
-`/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/`
+```
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+```
 
 ## TLDR
 
-To begin, we're going to break down this *email address* regex point by point. However, please review the table of contents for more information on how regex works, so you can build your own.
+To begin, we're going to break down this **email address** regex point by point. However, please review the table of contents for more information on how regex works, so you can build your own.
 
 1. `/` <br />
 At the beginning and the end encapsulates the regex
@@ -32,7 +34,7 @@ The dollar sign symbol at the end of the regex indicates that the match must end
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial I will be showing you how regex can be utilized. For this tutorial we will be using the email address example and each aspect of how regex it used will be discussed through that point of view.
 
 ## Table of Contents
 
@@ -48,6 +50,33 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ## Regex Components
 
 ### Anchors
+Regex anchors are special characters that don't match any characters themselves, but instead assert something about the position of the match within the string. They are used to restrict the range of possible matches for a regular expression pattern. Let's break these down.
+
+#### Types of Regex Anchors
+
+1. `^` (Caret): Matches the beginning of a string
+2. `$` (Dollar Sign): Matches the end of the string
+3. `\A`: Matches the beginning of the string, considering newline characters as part of the string
+4. `\z`: Matches the end of the string, excluding newline characters
+5. `\b` (Word Boundary): Matches the position between a word character and a non-word character or vice versa
+6. `\B` (Non-Word Boundary): Matches the position within a word or before/after a punctuation mark or whitespace
+
+#### Examples of Anchor Usage
+
+1. `^dog`: Matches the word "dog" only if it appears at the beginning of the string
+2. `cat$`: Matches the word "cat" only if it appears at the end of the string
+3. `^\d+$`: Matches a string that consists only of digits (numbers)
+4. `\Bdog\B`: Matches the word "dog" if it appears within another word or before/after a punctuation mark or whitespace, like "It was a dogpile"
+
+#### Impact of the `m` Flag (Multiline Mode)
+
+By default, the `^` and `$` anchors match only the beginning and end of the entire string. However, when the `m` flag is set, these anchors also match the beginning and end of each line within the string.
+
+#### Applications of Regex Anchors
+
+1. __Validating Input:__ Anchors can be used to ensure that user input adheres to specific formats, like emails
+2. __Extracting Specific Data:__ Anchors can be used to extract specific portions of text from a larger string, such as URLs or file names
+3. __Searching for Specific Patterns:__ Anchors can be used to find patterns that occur at specific positions within a text, such as words at the beginning of lines or numbers at the end of lines
 
 ### Quantifiers
 
