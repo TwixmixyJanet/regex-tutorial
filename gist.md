@@ -80,7 +80,32 @@ By default, the `^` and `$` anchors match only the beginning and end of the enti
 
 ### Quantifiers
 
+Regex quantifiers are metacharacters that specify how many times the preceding character or group should be matched in regular expressions. They are used to indicate the number of occurrences of a character or group, making it easier to match patterns of varying lengths.
+
+#### Types of Quantifiers
+
+There are five main types.
+1. __Zero or more (*):__ Matches the preceding character or group zero or more times <br />
+_For example: The regex pattern `colou*r` will match "colour", "colouur", "colouuuuuur", etc._
+2. __One or more (+):__ Matches the preceding character or group one or more times <br />
+_For example: The regex pattern `colou+r`will match "colour", "colouur", "colouuuuuur", (etc), but not "color"._
+3. __Zero or one (?):__ Matches the preceding character or group zero or one time <br />
+_For example: The regex pattern `colou?r` will match "color" and "colour"._
+4. __Exactly n times ({n}):__ Matches the preceding character or group exactly n times
+_For example: The regex pattern `colou{3}r` will match "colouuur", but not "colour" or "colouuuur"._
+5. __Between n and m times ({n},{m}):__ Matches the preceding character or group between n and m times
+_For example: The regex pattern `colou{2,3}r` will match "colouur" and "colouuurr", but not "colour" or "colouuuurrr"._
+
+#### Greedy versus Lazy Quantifiers
+
+Some quantifiers have two versions: greedy and lazy. Greedy quantifiers try to match as many times as possible, while lazy quantifiers try to match as few times as possible. You can turn a greedy quantifier into a lazy quantifier by adding a "?".
+For example: the regex pattern `colou+?r` will match "color" and "colour", while the regex pattern `colou*+r` will match "colour", "colouur", "colouuuur", and so on.
+
+Quantifiers are a powerful tool for matching pattersn in strings. They are used in many different applications, including text processing, data validation, and web scraping.
+
 ### Grouping Constructs
+
+
 
 ### Bracket Expressions
 
