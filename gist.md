@@ -193,6 +193,34 @@ Regex flags play a crucial role in enhancing the flexibility and power of regex,
 
 ### Character Escapes
 
+Regex character escapes are used to inform the regex engine that a specific character should be interpreted literally rather than as a metacharacter. Metacharacters have special meanings within the regex and are used to define patterns or constructs. By escaping a character, you tell the engine to treat it as an ordinary character rather than its special meaning.
+
+The backslash (`\`) symbol is used to escape characters in regex. When you precede a character with a backslash, it instructs the negine to interpret that character as itself. 
+
+__Here are some common regex character escapes:__
+
+| Character |	Escaped Form |	Meaning |
+| ----- | ----- | ----- |
+| .	| .	| Matches any single character except for a newline |
+| + | + | Matches one or more of the preceding character |
+| *	| *	| Matches zero or more of the preceding character |
+| ? |	? |	Matches zero or one of the preceding character |
+| ^ |	^ |	Matches the beginning of a string |
+| $ |	$ |	Matches the end of a string |
+| ( |	( |	Starts a capturing group |
+| ) |	) |	Ends a capturing group |
+| [ |	[ |	Starts a character class |
+| ] |	] |	Ends a character class |
+| { |	{ |	Starts a quantifier |
+| } |	} |	Ends a quantifier |
+| \ |	\ |	Escapes a backslash |
+
+Escaping characters is essential when matching literal occurrences of metacharacters or when you want to use a character in a way that conflicts with its special meaning.
+
+### In Summary
+
+There is a LOT that goes into any regex. There's no way to remember all of this information and I would *highly* recommend using your favorite regex documentation to build what you are trying to accomplish. Questions? Hit up the old google.com or your preferred AI!
+
 ## Author
 ### Janet Webster
 Full Stack MERN Software Engineer in training.
