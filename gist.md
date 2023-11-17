@@ -178,6 +178,19 @@ The OR operator, represented by the pipe symbol (|), is a fundamental operator i
 
 ### Flags
 
+Regex flags or regex options, are optional modifiers that can be used to alter the behavior of regex. The are typically denoted by single lowercase letters placed at the end of a regex pattern. These flags provide various functionalities, such as performing case-insensitive searches, matching multiple occurrences of a pattern, or enabling support for Unicode characters.
+
+1. `i` (ignore case): This flag makes the regex case-insensitive, meaning it matches both uppercase and lowercase characters interchangeably. For instance, the pattern "/a/i" matches all occurrences of the letter "a" or "A" in a given string.
+2. `g` (global): This flag tells the regex to find all occurrences of the pattern in the string, rather than just the first one. Without the "g" flag, the regex stops searching after finding the first match.
+3. `m` (multiline): This flag enables multiline mode, which affects the behavior of the caret (`^`) and dollar sign (`$`) anchors. In multiline mode, `^` matches the beginning of any line, and `$` matches the end of any line.
+4. `u` (Unicode): This flag enables support for Unicode characters, allowing the regex to match characters beyond the Basic Multilingual Plane (BMP).
+5. `s` (single-line): This flag treats the entire string as a single line, causing the dot (`.`) metacharacter to match newlines as well as any other character.
+6. `y` (sticky): This flag restricts the search to the last match position. It only finds matches from the position where the previous match ended.
+
+These flags can be combined to achieve specific search behaviors. For example, "/color.*/gi" searches for all occurrences of the word "color" following by any number of characters, regardless of case, across multiple lines in the string.
+
+Regex flags play a crucial role in enhancing the flexibility and power of regex, enabling them to handlemore complex and nuanced search tasks.
+
 ### Character Escapes
 
 ## Author
