@@ -1,6 +1,6 @@
 # Find or Validate an Email Address with Regular Expression
 
-Regular expressions (regex) can be a powerful tool for finding or validating email addresses in text. Here's a general regular expression that can be used to match a valid email address:
+Regular expressions (regex) can be a powerful tool for finding or validating email addresses in text. Here's a general regex that can be used to match a valid email address:
 
 ```
 /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
@@ -15,22 +15,15 @@ At the beginning and the end encapsulates the regex
 2. `^`  <br />
 Symbol to start, indicates that the match must start at the very beginning of the input string. This ensures that the entire email address is captured, not just a portion of it.
 3. `([a-z0-9_\.-]+)`  <br />
-This capture group matches the local part of the email address. This part appears before the `@` symbol. It is stating that this portion can be lower-case letters, numbers, underscores, hyphens, and periods. The `+` quantifier indicates that there must be at least one characer in this part.
+This capture group matches the local part of the email address. This part appears before the `@` symbol. It is stating that this portion can be lowercase letters, numbers, underscores, hyphens, and periods. The `+` quantifier indicates that there must be at least one characer in this part.
 4. `@`  <br />
 The literal `@` symbol is used to separate the local part from the domain part of the email address. It's how we can tell an email address, is an email address.
 5.  `([\da-z\.-]+)`  <br />
-This capture group matches the domain part of the email address. This is the part of the email address that appears after the `@` symbol. It can be lower-case letters, numbers, hyphens, and periods. The `+` quantifier indivates that there must be at least one character in the domain part.
+This capture group matches the domain part of the email address. This is the part of the email address that appears after the `@` symbol. It can be lowercase letters, numbers, hyphens, and periods. The `+` quantifier indivates that there must be at least one character in the domain part.
 6.  `\.([a-z\.]{2,6})`  <br />
-This capture group matched the top-level domain (TLD) of the email address. This is the part of the email address that appears after the last dot in the domain part (example: `.com`). It must consist of at least two characters and no more than six characters. It can contain lower-case letters and periods.
+This capture group matched the top-level domain (TLD) of the email address. This is the part of the email address that appears after the last dot in the domain part (example: `.com`). It must consist of at least two characters and no more than six characters. It can contain lowercase letters and periods.
 7. `$`  <br />
 The dollar sign symbol at the end of the regex indicates that the match must end at the very end of the input string. This ensures that only complete email addresses are matched and prevents partial matches.
-
-
-<!-- - how to define a search pattern in a body of text
-- each character is a literal character (capital R, or lower-case a)
-- meta character, meaning a character that does not indicate a single literal character. More so a generalized pattern.
-- .* is a wildcard regular expression
-- \d is a digit -->
 
 ## Summary
 
@@ -50,7 +43,7 @@ In this tutorial I will be showing you how regex can be utilized. For this tutor
 ## Regex Components
 
 ### Anchors
-Regex anchors are special characters that don't match any characters themselves, but instead assert something about the position of the match within the string. They are used to restrict the range of possible matches for a regular expression pattern. Let's break these down.
+Regex anchors are special characters that don't match any characters themselves, but instead assert something about the position of the match within the string. They are used to restrict the range of possible matches for a regex pattern. Let's break these down.
 
 #### Types of Regex Anchors
 
@@ -80,7 +73,7 @@ By default, the `^` and `$` anchors match only the beginning and end of the enti
 
 ### Quantifiers
 
-Regex quantifiers are metacharacters that specify how many times the preceding character or group should be matched in regular expressions. They are used to indicate the number of occurrences of a character or group, making it easier to match patterns of varying lengths.
+Regex quantifiers are metacharacters that specify how many times the preceding character or group should be matched in regex. They are used to indicate the number of occurrences of a character or group, making it easier to match patterns of varying lengths.
 
 #### Types of Quantifiers
 
@@ -105,17 +98,17 @@ Quantifiers are a powerful tool for matching pattersn in strings. They are used 
 
 ### Grouping Constructs
 
-Grouping constructs are fundamental elements of regular expressions that allow you to group subexpressions, apply quantifiers to multiple patterns, and capture matched substrings. They play a crucial role in constructing complex and sophisticated regular expressions.
+Grouping constructs are fundamental elements of regex that allow you to group subexpressions, apply quantifiers to multiple patterns, and capture matched substrings. They play a crucial role in constructing complex and sophisticated regex.
 
 #### Purpose of Grouping Constructs
 
-1. __Grouping Subexpressions:__ They enable you to group multiple regular expression patterns into a single unit, allowing you to apply quantifiers, assertions, or other expressions to the entire group.
+1. __Grouping Subexpressions:__ They enable you to group multiple regex patterns into a single unit, allowing you to apply quantifiers, assertions, or other expressions to the entire group.
 2. __Quantifying Multiple Patterns:__ Grouping constructs enable you to apply quantifiers to multiple patterns simultaneously. For instance, the pattern `(ab){2}` matches two consecutive occurrences of the substring "ab".
 3. __Capturing Matched Substrings:__ Grouping constructs can be used to capture matched substrings for further processing or replacement. Captured groups can be accessed using backreferences.
 
 #### Common Grouping Constructs
 
-1. __Parentheses ():__ Parentheses are the most common grouping construct in regular expression. They group subexpressions and allow quantifiers to be applied to the entire group.
+1. __Parentheses ():__ Parentheses are the most common grouping construct in regex. They group subexpressions and allow quantifiers to be applied to the entire group.
 2. __Non-capturing Groups (?P>):__ The non-capturing group construct, denoted by `(?P<>)`, groups subexpressions without capturing the matched substrings. This is useful when you want to group patterns for quantifiers or assertions but don't need to capture the matched text.
 3. __Named Groups `(?P<name>)`:__ Named groups allow you to assign unique names to subexpressions, making them easier to reference in backreferences or replacement operations.
 4. __Lookahead and Lookbehind Assertions:__ Named groups allow you to assign unique names to subexpressions, making them easier to reference in backreferences or replacement operations.
@@ -124,9 +117,64 @@ Grouping constructs are essential tools for building powerful and versatile rege
 
 ### Bracket Expressions
 
+Bracket expressions, also known as character classes, are a fundamental component of regex that allow you to specify a set of characters to match. They are enclosed in square brackets (`[]`) and can be used to match a single character or a range of characters.
+
+#### Matching Single Characters
+
+To match a single character, simply list the character within the square brackets. For instance `[a]` matches the lowercase letter "a," while `[Z]` matches the uppercase letter "Z."
+
+#### Matching Character Ranges
+
+To match a range of characters, use a hyphen (-) to indicate the start and end of the range. For example, `[a-z]` matches any lowercase letter from "a" to "z," and `[0-9]` matches any decimal digit from 0 to 9.
+
+#### Negating Character Classes
+
+To negate a character class, place a caret (`^`) at the beginning of the square brackets. This matches any character except those listed within the brackets. For instance, `[^a-z]` matches any character except lowercase letters, and `[^0-9]` matches any character except decimal digits.
+
+#### Matching Multiple Character Classes
+
+You can combine multiple character classes into a single pattern using the pipe (`|`) symbol. This matches any character that belongs to any of the specified classes. For example, `[a-z0-9]` matches any lowercase letter or decimal digit.
+
+#### Escaping Characters
+
+Certain characters, such as `.` (period), `^` (caret), `$` (dollar sign), `*` (asterisk), `+` (plus sign), `?` (question mark), `\` (backslash), and `()`, have special meanings in regex. To match these characters literally, you need to escape them by placing a backslash (`\`) before them. For example, `\.` matches a literal period, `\^` matches a literal caret, and `\\` matches a literal backlash.
+
 ### Character Classes
 
+Character classes, also known as character sets, are a fundamental component of regex used to match specific characters or groups of characters within a string. They are defined using square brackets (`[]`) and allow you to specify a range of characters or negate a set of characters.
+
+#### Matching a Single Character from a Set
+
+To match any single character from a specified set, enclose the characters within square brackets. For instance, the character class `[abc]` matches any of the characters 'a', 'b', or 'c'.
+
+#### Matching a Range of Characters
+
+To match a range of characters, use a hyphen (-) between the characters. For example, `[a-z]` matches any lowercase letter from 'a' to 'z'. Similarly, `[0-9]` matches any digit from 0 to 9.
+
+#### Negating a Character Class
+
+To match any character except for those specified in the character class, place a caret (`^`) at the beginning of the character class. For instance, `[^abc]` matches any character that is not 'a', 'b', or 'c'.
+
+#### Matching Specific Character Classes
+Certain predefined character classes represent common sets of characters.
+
+- `\d`: Matches any digit from 0 to 9.
+- `\D`: Matches any character that is not a digit.
+- `\s`: Matches any whitespace character, including spaces, tabs, newlines.
+- `\S`: Matches any character that is not a whitespace character.
+- `\w`: Matches any word character, including letters, digits, and underscores (_).
+- `\W`: Matches any character that is not a word character.
+
 ### The OR Operator
+
+The OR operator, represented by the pipe symbol (|), is a fundamental operator in regex that allows for matching multiple alternative patterns. It essentially provides a choice between two or more patterns, indicating that any of the specified patterns will satisfy the matching criteria.
+
+1. __Multiple Patterns:__ The OR operator can connect two or more regex patterns, allowing you to match any of the specified patterns.
+2. __Alternative Matching:__ The OR operator indicates that any of the connected patterns is a valid match for the regex.
+3. __Order of Application:__ The OR operator is applied left to right, meaning it evaluates the patterns sequentially until a match is found.
+4. __Matching Efficiency:__ If a match is found with the first pattern, the second and subsequent patterns are not evaluated.
+5. __Grouping with Parentheses:__ You can use parentheses to group patterns and apply the OR operator within the group.
+6. __Nested OR Operators:__ You can nest OR operators within each other to create more complex matching criteria.
 
 ### Flags
 
