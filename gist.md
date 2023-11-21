@@ -25,9 +25,9 @@ This capture group matched the top-level domain (TLD) of the email address. This
 7. `$`  <br />
 The dollar sign symbol at the end of the regex indicates that the match must end at the very end of the input string. This ensures that only complete email addresses are matched and prevents partial matches.
 
-## Summary
+## Introduction
 
-In this tutorial I will be showing you how regex can be utilized. For this tutorial we will be using the email address example and each aspect of how regex it used will be discussed through that point of view.
+In this tutorial I will be showing you how regex can be utilized. For this tutorial we covered above how to do this with an email address. Below you can see how to utilize regex for a variety of use-case scenarios.
 
 ## Table of Contents
 
